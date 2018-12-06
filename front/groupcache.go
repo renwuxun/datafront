@@ -115,9 +115,9 @@ func Get(groupName, key string) ([]byte, error) {
 	return res.Value, nil
 }
 
-func MakeCanServeGroupcache(fun func(addr string, compress bool, h fasthttp.RequestHandler)) func(addr string, compress bool, h fasthttp.RequestHandler) {
-	return func(addr string, compress bool, h fasthttp.RequestHandler) {
+func MakeCanServeGroupcache(fun func(addr string, h fasthttp.RequestHandler)) func(addr string, h fasthttp.RequestHandler) {
+	return func(addr string, h fasthttp.RequestHandler) {
 		h = makeHandlerCanServeGroupcache(h)
-		fun(addr, compress, h)
+		fun(addr, h)
 	}
 }

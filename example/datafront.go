@@ -11,9 +11,8 @@ import (
 )
 
 var (
-	me       = flag.String("me", "0.0.0.0:8080", "Current peer's TCP address to listen to")
-	others   = flag.String("others", "0.0.0.0:8081", `Other peers's TCP address [separate by ","]`)
-	compress = flag.Bool("compress", false, "Whether to enable transparent response compression")
+	me     = flag.String("me", "0.0.0.0:8080", "Current peer's TCP address to listen to")
+	others = flag.String("others", "0.0.0.0:8081", `Other peers's TCP address [separate by ","]`)
 )
 
 func main() {
@@ -32,5 +31,5 @@ func main() {
 	fasthttproute.Handle("/front/purge", httphandler.FrontPurgeGroup)
 
 	ServeFasthttpAndGroupcache := front.MakeCanServeGroupcache(fasthttproute.ServeFasthttp)
-	ServeFasthttpAndGroupcache(*me, *compress, fasthttproute.DefaultHandler)
+	ServeFasthttpAndGroupcache(*me, fasthttproute.DefaultHandler)
 }

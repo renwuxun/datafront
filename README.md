@@ -9,8 +9,8 @@
 ```
 向任意实例取数据，实例内部会自动分发请求
 ```bash
-curl '127.0.0.1:8080/front/get?group=dummygroup&key=abc'
-curl '127.0.0.1:8080/front/get?group=dummygroup&key=abc1'
+curl '127.0.0.1:8080/front?group=dummygroup&key=abc'
+curl '127.0.0.1:8080/front?group=dummygroup&key=abc1'
 ```
 输出：
 ```bash

@@ -22,3 +22,7 @@ key: [abc1-0] from peer: 127.0.0.1:8080
 curl '127.0.0.1:8080/front/purge?group=dummygroup'
 curl '127.0.0.1:8081/front/purge?group=dummygroup'
 ```
+
+####TODO
+* 提供接口重置peers
+* 新增peers健康检查协程

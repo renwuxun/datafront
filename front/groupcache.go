@@ -121,3 +121,8 @@ func MakeCanServeGroupcache(fun func(addr string, h fasthttp.RequestHandler)) fu
 		fun(addr, h)
 	}
 }
+
+// UpdatePeers 使得外层应用在运行中可以实时增减节点
+func UpdatePeers(ps []string) {
+	peers.Set(ps...)
+}
